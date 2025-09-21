@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fellowship of Christian Nurses | Obangede Chapter</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .hero-bg {
+            background-image: linear-gradient(rgba(0, 41, 82, 0.75), rgba(0, 21, 42, 0.85)), url('https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?q=80&w=1932&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        .section-title {
+            position: relative;
+            padding-bottom: 15px;
+        }
+        .section-title::after {
+            content: '';
+            position: absolute;
+            display: block;
+            width: 70px;
+            height: 4px;
+            background: #3b82f6;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+        .card-hover-effect {
+            transition: transform 0.3s ease, box-shadow 0.4s ease;
+        }
+        .card-hover-effect:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+        }
+        /* Animation Classes */
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .fade-in-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        /* Modal Styles */
+        .modal {
+            transition: opacity 0.3s ease;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- Header -->
+    <header class="bg-white/80 backdrop-blur-lg shadow-sm sticky top-0 z-50">
+        <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <a href="#" class="flex items-center space-x-3">
+                <img src="https://i.postimg.cc/G2jqYZJd/image.png" alt="FCN Obangede Logo" class="h-12 w-12 object-contain">
+                <span class="text-xl font-bold text-gray-800 hidden sm:block">FCN Obangede</span>
+            </a>
+            <div class="hidden md:flex space-x-8 items-center">
+                <a href="#about" class="text-gray-600 hover:text-blue-600 font-medium transition-colors">About Us</a>
+                <a href="#events" class="text-gray-600 hover:text-blue-600 font-medium transition-colors">Events</a>
+                <a href="#leadership" class="text-gray-600 hover:text-blue-600 font-medium transition-colors">Leadership</a>
+                <a href="#contact" class="text-gray-600 hover:text-blue-600 font-medium transition-colors">Contact</a>
+                <a href="#" id="open-give-modal-nav" class="text-blue-600 hover:text-blue-800 font-bold transition-colors">Give</a>
+            </div>
+            <a href="#portal" class="hidden md:block bg-blue-600 text-white font-bold py-2 px-5 rounded-full hover:bg-blue-700 transition-transform hover:scale-105 ml-6">Member Portal</a>
+            <button id="mobile-menu-button" class="md:hidden text-gray-700 text-2xl">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </nav>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden px-6 pt-2 pb-4">
+            <a href="#about" class="block py-2 text-gray-600 hover:text-blue-600">About Us</a>
+            <a href="#events" class="block py-2 text-gray-600 hover:text-blue-600">Events</a>
+            <a href="#leadership" class="block py-2 text-gray-600 hover:text-blue-600">Leadership</a>
+            <a href="#contact" class="block py-2 text-gray-600 hover:text-blue-600">Contact</a>
+            <a href="#" id="open-give-modal-mobile" class="block py-2 text-blue-600 font-bold">Give</a>
+            <a href="#portal" class="block mt-2 w-full text-center bg-blue-600 text-white font-bold py-2 px-4 rounded-full hover:bg-blue-700">Member Portal</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-bg text-white">
+        <div class="container mx-auto px-6 py-32 md:py-48 text-center flex flex-col items-center">
+            <h1 class="text-4xl md:text-6xl font-extrabold mb-4 animate-fade-in-up">Fellowship of Christian Nurses</h1>
+            <h2 class="text-2xl md:text-3xl font-semibold mb-6 animate-fade-in-up" style="animation-delay: 0.2s;">Obangede Chapter, Kogi State</h2>
+            <p class="max-w-3xl mx-auto mb-10 text-gray-200 text-lg animate-fade-in-up" style="animation-delay: 0.4s;">Nurturing faith, promoting excellence, and serving with compassion in the nursing profession, guided by the love of Christ.</p>
+            <div class="flex flex-col sm:flex-row gap-4">
+                <a href="#about" class="bg-white text-blue-600 font-bold py-3 px-8 rounded-full hover:bg-gray-200 transition-transform hover:scale-105 animate-fade-in-up" style="animation-delay: 0.6s;">Discover More</a>
+                <a href="#" id="open-give-modal-hero" class="bg-blue-500 text-white font-bold py-3 px-8 rounded-full hover:bg-blue-600 transition-transform hover:scale-105 animate-fade-in-up" style="animation-delay: 0.7s;">Partner With Us</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-6 py-16">
+
+        <!-- About Us Section -->
+        <section id="about" class="mb-24">
+            <h2 class="text-4xl font-bold text-center mb-12 section-title fade-in-up">Who We Are</h2>
+            <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
+                <div class="lg:w-1/2 fade-in-up">
+                    <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?q=80&w=2070&auto=format&fit=crop" alt="Group of diverse nurses" class="rounded-xl shadow-2xl">
+                </div>
+                <div class="lg:w-1/2 fade-in-up" style="animation-delay: 0.2s;">
+                    <h3 class="text-2xl font-bold mb-4 text-gray-800">A Community of Faith and Profession</h3>
+                    <p class="mb-6 text-gray-600">The Fellowship of Christian Nurses (FCN), Obangede Chapter, is a student-led body dedicated to the spiritual and professional growth of nursing students at the Kogi State College of Nursing Sciences. Our mission is to build a strong community of Christian nurses who are not only clinically competent but are also spiritually grounded, ready to serve as witnesses for Christ in the healthcare field.</p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="bg-white p-6 rounded-lg shadow-sm border-l-4 border-blue-500">
+                            <h4 class="font-bold text-lg mb-2">Our Vision</h4>
+                            <p class="text-gray-600">To be a beacon of God's love and healing in the healthcare community of Nigeria and beyond.</p>
+                        </div>
+                        <div class="bg-white p-6 rounded-lg shadow-sm border-l-4 border-blue-500">
+                            <h4 class="font-bold text-lg mb-2">Our History</h4>
+                            <p class="text-gray-600">Founded by passionate students, our chapter has grown into a vibrant fellowship supporting hundreds of future nurses.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-16 fade-in-up">
+                <h3 class="text-2xl font-bold text-center mb-8">Our Core Values</h3>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 text-center">
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <i class="fas fa-cross text-3xl text-blue-500 mb-3"></i>
+                        <h4 class="font-bold text-lg">Faith</h4>
+                        <p class="text-sm text-gray-600">Centered on the teachings of Jesus Christ.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <i class="fas fa-heartbeat text-3xl text-blue-500 mb-3"></i>
+                        <h4 class="font-bold text-lg">Compassion</h4>
+                        <p class="text-sm text-gray-600">Serving patients with empathy and love.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <i class="fas fa-award text-3xl text-blue-500 mb-3"></i>
+                        <h4 class="font-bold text-lg">Excellence</h4>
+                        <p class="text-sm text-gray-600">Striving for the highest professional standards.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <i class="fas fa-users text-3xl text-blue-500 mb-3"></i>
+                        <h4 class="font-bold text-lg">Fellowship</h4>
+                        <p class="text-sm text-gray-600">Supporting each other in prayer and purpose.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Events Section -->
+        <section id="events" class="mb-24 bg-blue-50 py-16 rounded-xl">
+            <div class="container mx-auto px-6">
+                <h2 class="text-4xl font-bold text-center mb-12 section-title fade-in-up">Upcoming Events</h2>
+                <div class="bg-white p-8 rounded-lg shadow-xl max-w-4xl mx-auto fade-in-up" style="animation-delay: 0.2s;">
+                    <div class="space-y-6">
+                        <!-- Event Item -->
+                        <div class="flex flex-col sm:flex-row items-center gap-6 p-4 border-b transition-colors hover:bg-gray-50 rounded-md">
+                            <div class="text-center sm:w-24">
+                                <p class="text-blue-600 font-bold text-xl">OCT</p>
+                                <p class="text-4xl font-extrabold text-gray-700">05</p>
+                            </div>
+                            <div class="flex-grow text-center sm:text-left">
+                                <h4 class="font-bold text-xl">Annual Thanksgiving Service</h4>
+                                <p class="text-gray-600"><i class="fa-solid fa-clock mr-2"></i>10:00 AM | <i class="fa-solid fa-map-marker-alt ml-2 mr-2"></i>College Chapel</p>
+                            </div>
+                            <button class="bg-blue-100 text-blue-700 font-bold py-2 px-5 rounded-full hover:bg-blue-200 transition-transform hover:scale-105">Details</button>
+                        </div>
+                        <!-- Event Item -->
+                        <div class="flex flex-col sm:flex-row items-center gap-6 p-4 border-b transition-colors hover:bg-gray-50 rounded-md">
+                             <div class="text-center sm:w-24">
+                                <p class="text-blue-600 font-bold text-xl">OCT</p>
+                                <p class="text-4xl font-extrabold text-gray-700">18</p>
+                            </div>
+                            <div class="flex-grow text-center sm:text-left">
+                                <h4 class="font-bold text-xl">Medical Outreach to Ihima Community</h4>
+                                <p class="text-gray-600"><i class="fa-solid fa-clock mr-2"></i>8:00 AM Start | <i class="fa-solid fa-map-marker-alt ml-2 mr-2"></i>Ihima Town Hall</p>
+                            </div>
+                            <button class="bg-blue-100 text-blue-700 font-bold py-2 px-5 rounded-full hover:bg-blue-200 transition-transform hover:scale-105">Volunteer</button>
+                        </div>
+                         <!-- Event Item -->
+                        <div class="flex flex-col sm:flex-row items-center gap-6 p-4 transition-colors hover:bg-gray-50 rounded-md">
+                             <div class="text-center sm:w-24">
+                                <p class="text-blue-600 font-bold text-xl">NOV</p>
+                                <p class="text-4xl font-extrabold text-gray-700">12</p>
+                            </div>
+                            <div class="flex-grow text-center sm:text-left">
+                                <h4 class="font-bold text-xl">End of Year Get-Together</h4>
+                                <p class="text-gray-600"><i class="fa-solid fa-clock mr-2"></i>2:00 PM | <i class="fa-solid fa-map-marker-alt ml-2 mr-2"></i>Campus Auditorium</p>
+                            </div>
+                            <button class="bg-blue-100 text-blue-700 font-bold py-2 px-5 rounded-full hover:bg-blue-200 transition-transform hover:scale-105">RSVP</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Leadership Section -->
+        <section id="leadership" class="mb-24">
+            <h2 class="text-4xl font-bold text-center mb-12 section-title fade-in-up">Meet the Leadership</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Profile Card -->
+                <div class="text-center bg-white p-6 rounded-lg shadow-lg card-hover-effect fade-in-up">
+                    <img src="https://placehold.co/200x200/a0aec0/ffffff?text=Exec" alt="President" class="w-32 h-32 rounded-full mx-auto mb-4 border-4 border-blue-300">
+                    <h4 class="font-bold text-xl">John Isaac</h4>
+                    <p class="text-blue-600 font-semibold">President</p>
+                </div>
+                 <!-- Profile Card -->
+                <div class="text-center bg-white p-6 rounded-lg shadow-lg card-hover-effect fade-in-up" style="animation-delay: 0.1s;">
+                    <img src="https://placehold.co/200x200/a0aec0/ffffff?text=Exec" alt="Vice President" class="w-32 h-32 rounded-full mx-auto mb-4 border-4 border-blue-300">
+                    <h4 class="font-bold text-xl">Miss Favour</h4>
+                    <p class="text-blue-600 font-semibold">Vice President</p>
+                </div>
+                 <!-- Profile Card -->
+                <div class="text-center bg-white p-6 rounded-lg shadow-lg card-hover-effect fade-in-up" style="animation-delay: 0.2s;">
+                    <img src="https://placehold.co/200x200/a0aec0/ffffff?text=Exec" alt="Music Director" class="w-32 h-32 rounded-full mx-auto mb-4 border-4 border-blue-300">
+                    <h4 class="font-bold text-xl">Bro Favour</h4>
+                    <p class="text-blue-600 font-semibold">Music Director</p>
+                </div>
+                 <!-- Profile Card -->
+                <div class="text-center bg-white p-6 rounded-lg shadow-lg card-hover-effect fade-in-up" style="animation-delay: 0.3s;">
+                    <img src="https://placehold.co/200x200/a0aec0/ffffff?text=Exec" alt="Brothers Coordinator" class="w-32 h-32 rounded-full mx-auto mb-4 border-4 border-blue-300">
+                    <h4 class="font-bold text-xl">Paul</h4>
+                    <p class="text-blue-600 font-semibold">Brothers Coordinator</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Alumni Section -->
+        <section id="alumni" class="mb-24 text-center bg-gray-800 text-white py-16 rounded-xl fade-in-up">
+            <div class="mb-8">
+                <img src="https://placehold.co/150x150/e2e8f0/334155?text=Alumni+Pres" alt="Alumni President" class="w-24 h-24 rounded-full mx-auto mb-4 border-4 border-green-400">
+                <h3 class="font-bold text-xl">Bro John Gwantana</h3>
+                <p class="text-green-300 font-semibold">Alumni President</p>
+            </div>
+            <i class="fab fa-whatsapp text-5xl text-green-400 mb-4"></i>
+            <h2 class="text-3xl font-bold mb-4">Are You an Alumnus?</h2>
+            <p class="max-w-xl mx-auto mb-8">Stay connected with fellow graduates, share experiences, and continue to support one another in your professional and spiritual journeys. Join our official alumni group!</p>
+            <a href="https://chat.whatsapp.com/IaUPLUGWHWxFWwWRaVydDt?mode=ac_t" target="_blank" class="bg-green-500 text-white font-bold py-3 px-8 rounded-full hover:bg-green-600 transition-transform hover:scale-105 inline-block">
+                <i class="fab fa-whatsapp mr-2"></i> Join Alumni Group
+            </a>
+        </section>
+
+        <!-- Member Portal / Voting Section Placeholder -->
+        <section id="portal" class="mb-24 bg-gray-100 py-16 rounded-xl fade-in-up">
+            <div class="container mx-auto px-6">
+                <h2 class="text-4xl font-bold text-center mb-2 section-title">Member Portal</h2>
+                <p class="text-center text-gray-600 max-w-2xl mx-auto mb-10">Access exclusive resources, connect with members, and participate in digital elections.</p>
+                
+                <div class="max-w-xl mx-auto bg-white p-8 rounded-xl shadow-2xl">
+                    <!-- Tabs: Login / Register -->
+                    <div class="flex border-b border-gray-200 mb-6">
+                        <button id="login-tab" class="flex-1 py-3 font-semibold text-center text-blue-600 border-b-2 border-blue-600 transition-colors">Login</button>
+                        <button id="register-tab" class="flex-1 py-3 font-semibold text-center text-gray-500 transition-colors hover:text-gray-800">Register</button>
+                    </div>
+
+                    <!-- Login Form -->
+                    <div id="login-form">
+                        <form>
+                            <div class="mb-6">
+                                <label for="login-username" class="block text-gray-700 font-semibold mb-2">Username / Matric No.</label>
+                                <input type="text" id="login-username" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition" placeholder="Enter your username or matric number">
+                            </div>
+                            <div class="mb-6">
+                                <label for="login-password" class="block text-gray-700 font-semibold mb-2">Password</label>
+                                <input type="password" id="login-password" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition" placeholder="••••••••">
+                            </div>
+                            <button type="submit" class="w-full bg-blue-600 text-white font-bold py-3 px-4 rounded-full hover:bg-blue-700 transition-transform hover:scale-105">Login</button>
+                        </form>
+                    </div>
+
+                    <!-- Registration Form Container -->
+                    <div id="register-form" class="hidden">
+                        <p class="text-center font-semibold text-lg mb-4">Are you an Alumnus or a Student?</p>
+                        <!-- Tabs: Student / Alumni -->
+                        <div class="flex rounded-lg bg-gray-100 p-1 mb-6">
+                            <button id="student-reg-tab" class="flex-1 py-2 font-semibold text-center text-white bg-blue-600 rounded-md shadow transition-all">Student</button>
+                            <button id="alumni-reg-tab" class="flex-1 py-2 font-semibold text-center text-gray-600 transition-all hover:bg-gray-200">Alumnus</button>
+                        </div>
+
+                        <!-- Student Registration Form -->
+                        <div id="student-reg-form">
+                            <form>
+                                 <div class="mb-4">
+                                    <label for="student-name" class="block text-gray-700 font-semibold mb-2">Full Name</label>
+                                    <input type="text" id="student-name" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition" placeholder="e.g., John Isaac">
+                                </div>
+                                <div class="mb-4">
+                                    <label for="matric-no" class="block text-gray-700 font-semibold mb-2">Matriculation Number</label>
+                                    <input type="text" id="matric-no" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition" placeholder="e.g., HND/NSC/23/001" required>
+                                    <p class="text-xs text-gray-500 mt-1">This will be your username. It is required.</p>
+                                </div>
+                                <div class="mb-4">
+                                    <label for="student-password" class="block text-gray-700 font-semibold mb-2">Password</label>
+                                    <input type="password" id="student-password" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition" placeholder="Create a strong password">
+                                </div>
+                                 <div class="mb-6">
+                                    <label for="student-confirm-password" class="block text-gray-700 font-semibold mb-2">Confirm Password</label>
+                                    <input type="password" id="student-confirm-password" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition" placeholder="Re-enter your password">
+                                </div>
+                                <button type="submit" class="w-full bg-blue-600 text-white font-bold py-3 px-4 rounded-full hover:bg-blue-700 transition-transform hover:scale-105">Create Student Account</button>
+                            </form>
+                        </div>
+                        
+                        <!-- Alumni Registration Form -->
+                        <div id="alumni-reg-form" class="hidden">
+                             <form>
+                                 <div class="mb-4">
+                                    <label for="alumni-name" class="block text-gray-700 font-semibold mb-2">Full Name</label>
+                                    <input type="text" id="alumni-name" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition" placeholder="e.g., John Gwantana">
+                                </div>
+                                <div class="mb-4">
+                                    <label for="alumni-email" class="block text-gray-700 font-semibold mb-2">Email Address</label>
+                                    <input type="email" id="alumni-email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition" placeholder="your.email@example.com">
+                                </div>
+                                 <div class="mb-4">
+                                    <label for="grad-year" class="block text-gray-700 font-semibold mb-2">Year of Graduation</label>
+                                    <input type="number" id="grad-year" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition" placeholder="e.g., 2022" min="1980" max="2025">
+                                </div>
+                                <div class="mb-4">
+                                    <label for="alumni-password" class="block text-gray-700 font-semibold mb-2">Password</label>
+                                    <input type="password" id="alumni-password" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition" placeholder="Create a strong password">
+                                </div>
+                                 <div class="mb-6">
+                                    <label for="alumni-confirm-password" class="block text-gray-700 font-semibold mb-2">Confirm Password</label>
+                                    <input type="password" id="alumni-confirm-password" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition" placeholder="Re-enter your password">
+                                </div>
+                                <button type="submit" class="w-full bg-blue-600 text-white font-bold py-3 px-4 rounded-full hover:bg-blue-700 transition-transform hover:scale-105">Create Alumni Account</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="fade-in-up">
+             <h2 class="text-4xl font-bold text-center mb-12 section-title">Get In Touch</h2>
+             <div class="max-w-2xl mx-auto bg-white p-8 sm:p-12 rounded-xl shadow-2xl">
+                <form>
+                    <div class="mb-6">
+                        <label for="name" class="block text-gray-700 font-semibold mb-2">Name</label>
+                        <input type="text" id="name" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition" placeholder="Your Name">
+                    </div>
+                    <div class="mb-6">
+                        <label for="email" class="block text-gray-700 font-semibold mb-2">Email</label>
+                        <input type="email" id="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition" placeholder="your.email@example.com">
+                    </div>
+                    <div class="mb-6">
+                        <label for="message" class="block text-gray-700 font-semibold mb-2">Message</label>
+                        <textarea id="message" rows="5" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition" placeholder="Your message..."></textarea>
+                    </div>
+                    <button type="submit" class="w-full bg-blue-600 text-white font-bold py-3 px-4 rounded-full hover:bg-blue-700 transition-transform hover:scale-105">Send Message</button>
+                </form>
+             </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white mt-24">
+        <div class="container mx-auto px-6 py-10 text-center">
+            <img src="https://i.postimg.cc/G2jqYZJd/image.png" alt="FCN Obangede Logo" class="h-16 w-16 mx-auto mb-4">
+            <p class="font-bold text-lg">Fellowship of Christian Nurses, Obangede Chapter</p>
+            <p class="text-gray-400 mt-4">&copy; 2025 FCN Obangede. All Rights Reserved. <br>Designed with a vision for digital transformation.</p>
+        </div>
+    </footer>
+
+    <!-- Give Modal -->
+    <div id="give-modal" class="modal fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center p-4 z-50 hidden">
+        <div class="bg-white rounded-xl shadow-2xl w-full max-w-md p-8 relative transform transition-transform scale-95">
+            <button id="close-give-modal" class="absolute top-4 right-4 text-gray-500 hover:text-gray-800 text-2xl">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="text-center">
+                <i class="fas fa-hand-holding-heart text-4xl text-blue-500 mb-4"></i>
+                <h2 class="text-3xl font-bold mb-2">Support Our Mission</h2>
+                <p class="text-gray-600 mb-6">Your generous giving helps us fund community outreaches, support student welfare, and spread the gospel. Thank you for partnering with us.</p>
+            </div>
+            <div class="bg-gray-100 p-6 rounded-lg">
+                <p class="text-sm text-gray-500 mb-1">Bank Name</p>
+                <p class="font-semibold text-lg mb-4">First Bank</p>
+
+                <p class="text-sm text-gray-500 mb-1">Account Name</p>
+                <p class="font-semibold text-lg mb-4">Fellowship of Christian Nurses Obangede</p>
+
+                <p class="text-sm text-gray-500 mb-1">Account Number</p>
+                <div class="flex items-center gap-4">
+                    <p id="account-number" class="font-bold text-2xl text-blue-600">3022421576</p>
+                    <button id="copy-account-btn" class="bg-blue-100 text-blue-700 font-bold py-2 px-3 rounded-md hover:bg-blue-200 transition-all text-sm">
+                        <i class="fas fa-copy mr-2"></i>Copy
+                    </button>
+                </div>
+            </div>
+             <p class="text-xs text-center text-gray-400 mt-6">"Each of you should give what you have decided in your heart to give, not reluctantly or under compulsion, for God loves a cheerful giver." - 2 Cor 9:7</p>
+        </div>
+    </div>
+
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            // Mobile Menu Toggle
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            // Scroll Animations
+            const animatedElements = document.querySelectorAll('.fade-in-up');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+            animatedElements.forEach(el => observer.observe(el));
+
+            // Give Modal Logic
+            const giveModal = document.getElementById('give-modal');
+            const openGiveModalButtons = [
+                document.getElementById('open-give-modal-nav'),
+                document.getElementById('open-give-modal-mobile'),
+                document.getElementById('open-give-modal-hero')
+            ];
+            const closeGiveModalButton = document.getElementById('close-give-modal');
+            const copyBtn = document.getElementById('copy-account-btn');
+            const accountNumber = document.getElementById('account-number').innerText;
+            const modalContent = giveModal.querySelector('div');
+
+            const openModal = () => {
+                giveModal.classList.remove('hidden');
+                document.body.style.overflow = 'hidden';
+                setTimeout(() => {
+                    giveModal.classList.remove('opacity-0');
+                    modalContent.classList.remove('scale-95');
+                }, 10);
+            };
+
+            const closeModal = () => {
+                giveModal.classList.add('opacity-0');
+                modalContent.classList.add('scale-95');
+                setTimeout(() => {
+                    giveModal.classList.add('hidden');
+                    document.body.style.overflow = 'auto';
+                }, 300);
+            };
+            
+            openGiveModalButtons.forEach(btn => btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                openModal();
+            }));
+            
+            closeGiveModalButton.addEventListener('click', closeModal);
+            giveModal.addEventListener('click', (e) => {
+                if (e.target === giveModal) {
+                    closeModal();
+                }
+            });
+
+            copyBtn.addEventListener('click', () => {
+                const tempInput = document.createElement('input');
+                tempInput.value = accountNumber;
+                document.body.appendChild(tempInput);
+                tempInput.select();
+                document.execCommand('copy');
+                document.body.removeChild(tempInput);
+
+                copyBtn.innerHTML = '<i class="fas fa-check mr-2"></i>Copied!';
+                setTimeout(() => {
+                    copyBtn.innerHTML = '<i class="fas fa-copy mr-2"></i>Copy';
+                }, 2000);
+            });
+
+            // Portal Form Logic
+            const loginTab = document.getElementById('login-tab');
+            const registerTab = document.getElementById('register-tab');
+            const loginForm = document.getElementById('login-form');
+            const registerForm = document.getElementById('register-form');
+
+            const studentRegTab = document.getElementById('student-reg-tab');
+            const alumniRegTab = document.getElementById('alumni-reg-tab');
+            const studentRegForm = document.getElementById('student-reg-form');
+            const alumniRegForm = document.getElementById('alumni-reg-form');
+
+            loginTab.addEventListener('click', () => {
+                loginTab.classList.add('text-blue-600', 'border-blue-600');
+                loginTab.classList.remove('text-gray-500');
+                registerTab.classList.add('text-gray-500');
+                registerTab.classList.remove('text-blue-600', 'border-blue-600');
+
+                loginForm.classList.remove('hidden');
+                registerForm.classList.add('hidden');
+            });
+
+            registerTab.addEventListener('click', () => {
+                registerTab.classList.add('text-blue-600', 'border-blue-600');
+                registerTab.classList.remove('text-gray-500');
+                loginTab.classList.add('text-gray-500');
+                loginTab.classList.remove('text-blue-600', 'border-blue-600');
+
+                registerForm.classList.remove('hidden');
+                loginForm.classList.add('hidden');
+            });
+
+            studentRegTab.addEventListener('click', () => {
+                studentRegTab.classList.add('text-white', 'bg-blue-600', 'shadow');
+                studentRegTab.classList.remove('text-gray-600');
+                alumniRegTab.classList.add('text-gray-600');
+                alumniRegTab.classList.remove('text-white', 'bg-blue-600', 'shadow');
+
+                studentRegForm.classList.remove('hidden');
+                alumniRegForm.classList.add('hidden');
+            });
+
+            alumniRegTab.addEventListener('click', () => {
+                alumniRegTab.classList.add('text-white', 'bg-blue-600', 'shadow');
+                alumniRegTab.classList.remove('text-gray-600');
+                studentRegTab.classList.add('text-gray-600');
+                studentRegTab.classList.remove('text-white', 'bg-blue-600', 'shadow');
+
+                alumniRegForm.classList.remove('hidden');
+                studentRegForm.classList.add('hidden');
+            });
+        });
+    </script>
+
+</body>
+</html>
+
+
